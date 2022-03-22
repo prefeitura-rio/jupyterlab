@@ -4,3 +4,4 @@ basedosdados
 scipy
 matplotlib
 seaborn
+loguru
