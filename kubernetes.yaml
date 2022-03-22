@@ -1,0 +1,90 @@
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    linkerd.io/inject: enabled
+  name: jupyterlab
+
+---
+# PersistentVolumeClaim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jupyterlab-pvc
+  namespace: jupyterlab
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyterlab
+  namespace: jupyterlab
+  labels:
+    name: jupyterlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: jupyterlab
+  template:
+    metadata:
+      labels:
+        name: jupyterlab
+    spec:
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0
+      containers:
+        - name: jupyterlab
+          image: gcr.io/PROJECT_ID/IMAGE_API:TAG
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8888
+          command:
+            - /bin/bash
+            - -c
+            - |
+              start.sh jupyter lab --LabApp.token='emd' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --collaborative
+          volumeMounts:
+            - name: jupyterlab-data
+              mountPath: /home/jovyan
+          resources:
+            requests:
+              memory: 500Mi
+              cpu: 250m
+            limits:
+              memory: 2048Mi
+              cpu: 1000m
+      restartPolicy: Always
+      volumes:
+      - name: jupyterlab-data
+        persistentVolumeClaim:
+          claimName: jupyterlab-pvc
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyterlab
+  namespace: jupyterlab
+  labels:
+    name: jupyterlab
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8888
+      protocol: TCP
+      name: http
+  selector:
+    name: jupyterlab
