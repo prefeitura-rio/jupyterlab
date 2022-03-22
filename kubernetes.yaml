@@ -54,6 +54,11 @@ spec:
             - -c
             - |
               start.sh jupyter lab --LabApp.token='emd' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --collaborative
+          envFrom:
+            - secretRef:
+                name: gcp-credentials
+            - secretRef:
+                name: vault-credentials
           volumeMounts:
             - name: jupyterlab-data
               mountPath: /home/jovyan
