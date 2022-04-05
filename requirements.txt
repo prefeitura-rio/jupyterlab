@@ -1,9 +1,11 @@
 pandas
 numpy
-basedosdados
+basedosdados>=1.6.3
 scipy
 matplotlib
 seaborn
 loguru
 plotly
 geopandas
+pygeos
+Rtree
