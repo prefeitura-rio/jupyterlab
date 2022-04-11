@@ -22,7 +22,6 @@ spec:
       storage: 10Gi
 
 ---
-# Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,7 +47,7 @@ spec:
           image: gcr.io/PROJECT_ID/IMAGE_API:TAG
           imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 8888
+            - containerPort: 8888
           command:
             - /bin/bash
             - -c
@@ -69,11 +68,26 @@ spec:
             limits:
               memory: 2048Mi
               cpu: 1000m
+        - name: pvc-backup
+          image: ghcr.io/prefeitura-rio/pvc-backup:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: backup-config
+          volumeMounts:
+            - name: google-service-account
+              mountPath: /credentials/
+              readOnly: true
+            - name: jupyterlab-data
+              mountPath: /backup
       restartPolicy: Always
       volumes:
-      - name: jupyterlab-data
-        persistentVolumeClaim:
-          claimName: jupyterlab-pvc
+        - name: jupyterlab-data
+          persistentVolumeClaim:
+            claimName: jupyterlab-pvc
+        - name: google-service-account
+          secret:
+            secretName: google-service-account
 
 ---
 # Service
