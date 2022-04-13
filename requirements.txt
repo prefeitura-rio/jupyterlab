@@ -11,3 +11,4 @@ pygeos
 Rtree
 gspread
 hvac
+openpyxl
