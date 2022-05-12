@@ -9,3 +9,6 @@ plotly
 geopandas
 pygeos
 Rtree
+gspread
+hvac
+openpyxl
