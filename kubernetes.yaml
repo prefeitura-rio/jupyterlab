@@ -59,7 +59,7 @@ spec:
             - /bin/bash
             - -c
             - |
-              start.sh jupyter lab --LabApp.token='emd' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True --collaborative
+              start.sh jupyter lab --LabApp.token='emd' --LabApp.ip='0.0.0.0' --LabApp.allow_root=True
           envFrom:
             - secretRef:
                 name: gcp-credentials
