@@ -1,6 +1,6 @@
 pandas
 numpy
-basedosdados==1.6.4b3
+basedosdados==1.6.4b4
 scipy
 matplotlib
 seaborn
