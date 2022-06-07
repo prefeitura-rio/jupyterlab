@@ -106,7 +106,7 @@ metadata:
   labels:
     name: jupyterlab
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 8888
