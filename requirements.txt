@@ -1,6 +1,6 @@
 pandas
 numpy
-basedosdados==1.6.4b4
+basedosdados==1.6.4
 scipy
 matplotlib
 seaborn
@@ -12,3 +12,5 @@ Rtree
 gspread
 hvac
 openpyxl
+diagrams
+graphviz
