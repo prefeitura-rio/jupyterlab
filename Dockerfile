@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends graphviz \
     && rm -rf /var/lib/apt/lists/*
 
 USER jovyan
+RUN apt-get install libpq-dev 
+
+USER jovyan
 COPY requirements.txt /tmp/requirements.txt
 RUN apt-get install libpq-dev \
     python -m pip install --no-cache-dir -r /tmp/requirements.txt && \
