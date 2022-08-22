@@ -8,4 +8,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends graphviz \
 USER jovyan
 COPY requirements.txt /tmp/requirements.txt
 RUN python -m pip install --no-cache-dir -r /tmp/requirements.txt && \
+    apt-get install libpq-dev \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyterlab-plotly
