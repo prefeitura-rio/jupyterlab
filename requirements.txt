@@ -14,5 +14,5 @@ hvac
 openpyxl
 diagrams
 graphviz
-kaleido
 triage
+kaleido
