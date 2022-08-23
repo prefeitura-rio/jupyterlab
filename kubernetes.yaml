@@ -66,6 +66,9 @@ spec:
             - secretRef:
                 name: vault-credentials
           volumeMounts:
+            - name: google-service-account
+              mountPath: /credentials/
+              readOnly: true
             - name: jupyterlab-data
               mountPath: /home/jovyan
           resources:
