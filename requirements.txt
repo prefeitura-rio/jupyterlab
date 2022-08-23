@@ -14,5 +14,4 @@ hvac
 openpyxl
 diagrams
 graphviz
-triage
 kaleido
