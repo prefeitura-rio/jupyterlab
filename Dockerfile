@@ -12,5 +12,5 @@ COPY requirements.txt /tmp/requirements.txt
 RUN python -m pip install --no-cache-dir --upgrade pip setuptools && \
     python -m pip install --no-cache-dir --prefer-binary -r /tmp/requirements.txt && \
     python -m pip install --no-cache-dir --prefer-binary triage && \
-    python -m pip install --no-cache-dir --prefer-binary pycaret && \
+    python -m pip install --no-cache-dir --prefer-binary pycaret --ignore installed && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyterlab-plotly
