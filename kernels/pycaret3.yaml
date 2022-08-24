@@ -1,0 +1,8 @@
+metadata:
+  display_name: "PyCaret 3 Kernel"
+  python_version: "3.9"
+  use_poetry: false
+
+dependencies:
+  - "pycaret==3.0.0rc3"
+  - "prophet"
