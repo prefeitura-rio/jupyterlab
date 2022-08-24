@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:python-3.9.10
+FROM jupyter/base-notebook:python-3.9.10
 
 USER root
 RUN apt-get update && \
@@ -8,9 +8,16 @@ RUN apt-get update && \
 
 
 USER jovyan
-COPY requirements.txt /tmp/requirements.txt
-RUN python -m pip install --no-cache-dir --upgrade pip setuptools && \
-    python -m pip install --no-cache-dir --prefer-binary -r /tmp/requirements.txt && \
-    python -m pip install --no-cache-dir --prefer-binary triage && \
-    python -m pip install --no-cache-dir --prefer-binary pycaret --ignore-installed && \
+RUN python -m pip install --no-cache-dir --upgrade pip setuptools poetry && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyterlab-plotly
+
+WORKDIR /tmp/_create_kernels
+COPY ./static /tmp/_static
+COPY ./kernels ./kernels
+COPY generate_kernels.py .
+COPY pyproject.toml .
+COPY poetry.lock .
+RUN poetry install && \
+    poetry run python generate_kernels.py
+
+WORKDIR /home/jovyan

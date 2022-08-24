@@ -19,7 +19,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 30Gi
 
 ---
 apiVersion: apps/v1
@@ -74,10 +74,10 @@ spec:
           resources:
             requests:
               memory: 1024Mi
-              cpu: 250m
+              cpu: 500m
             limits:
-              memory: 3072Mi
-              cpu: 1000m
+              memory: 5120Mi
+              cpu: 2500m
         - name: pvc-backup
           image: ghcr.io/prefeitura-rio/pvc-backup:latest
           imagePullPolicy: Always

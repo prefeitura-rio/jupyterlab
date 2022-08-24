@@ -1,0 +1,7 @@
+metadata:
+  display_name: "Triage Kernel"
+  python_version: "3.9"
+  use_poetry: false
+
+dependencies:
+  - "triage==5.2.0"

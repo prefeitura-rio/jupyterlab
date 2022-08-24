@@ -1,0 +1,24 @@
+metadata:
+  display_name: "Escritorio de Dados - Default"
+  python_version: "3.9"
+  use_poetry: false
+
+dependencies:
+  - pandas
+  - numpy
+  - basedosdados==1.6.4
+  - scipy
+  - matplotlib
+  - seaborn
+  - loguru
+  - plotly
+  - geopandas
+  - pygeos
+  - Rtree
+  - gspread
+  - hvac
+  - openpyxl
+  - diagrams
+  - graphviz
+  - kaleido
+  - google-api-python-client
