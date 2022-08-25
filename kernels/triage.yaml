@@ -5,3 +5,4 @@ metadata:
 
 dependencies:
   - "triage==5.2.0"
+  - "mlflow==1.28.0"

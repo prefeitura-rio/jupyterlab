@@ -4,5 +4,6 @@ metadata:
   use_poetry: false
 
 dependencies:
+  - "mlflow==1.28.0"
   - "pycaret==3.0.0rc3"
   - "prophet"
