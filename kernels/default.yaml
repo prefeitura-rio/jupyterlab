@@ -24,3 +24,5 @@ dependencies:
   - google-api-python-client
   - "mlflow==1.28.0"
   - geolocate
+  - lxml
+  - html5lib
