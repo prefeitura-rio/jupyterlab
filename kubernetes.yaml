@@ -78,8 +78,8 @@ spec:
               memory: 1024Mi
               cpu: 500m
             limits:
-              memory: 5120Mi
-              cpu: 2500m
+              memory: 2048Mi
+              cpu: 1000m
         - name: pvc-backup
           image: ghcr.io/prefeitura-rio/pvc-backup:latest
           imagePullPolicy: Always
