@@ -75,11 +75,11 @@ spec:
               mountPath: /home/jovyan
           resources:
             requests:
-              memory: 1024Mi
-              cpu: 500m
+              memory: 6Gi
+              cpu: 1500m
             limits:
-              memory: 2048Mi
-              cpu: 1000m
+              memory: 8Gi
+              cpu: 2000m
         - name: pvc-backup
           image: ghcr.io/prefeitura-rio/pvc-backup:latest
           imagePullPolicy: Always
