@@ -1,0 +1,10 @@
+metadata:
+  display_name: "Escritorio de Dados - Clean"
+  python_version: "3.9"
+  use_poetry: false
+
+dependencies:
+  - pandas
+  - numpy
+  - basedosdados==2.0.0b15
+  
