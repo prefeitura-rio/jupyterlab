@@ -12,7 +12,8 @@ dependencies:
   - seaborn
   - loguru
   - plotly
-  - geopandas
+  - geopandas==0.14.2
+  - descartes
   - pygeos
   - Rtree
   - gspread
@@ -25,7 +26,6 @@ dependencies:
   - geolocate
   - lxml
   - html5lib
-  - geobr
   - tabula
   - h3pandas
   - opencv-python
