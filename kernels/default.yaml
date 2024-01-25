@@ -30,3 +30,5 @@ dependencies:
   - h3pandas
   - opencv-python
   - openai
+  - langchain
+  - langchain-google-genai
