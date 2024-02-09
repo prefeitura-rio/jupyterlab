@@ -31,4 +31,6 @@ dependencies:
   - opencv-python
   - openai
   - langchain
-  - langchain-google-genai
+  - langchain-google-
+  - tabulate
+  - google-cloud-aiplatform
