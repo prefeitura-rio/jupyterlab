@@ -36,3 +36,5 @@ dependencies:
   - google-cloud-aiplatform
   - google-cloud-storage
   - google-cloud-bigquery
+  - folium
+  - nbformat
